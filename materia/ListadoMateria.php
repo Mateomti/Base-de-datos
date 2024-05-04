@@ -77,7 +77,7 @@
     <?php
     include("../conexion.php");
     $sql = "SELECT M.nombre, M.cantidad_hs, M.correlativas, M.curso FROM materia M";
-    $res = mysqli_query($mat,$sql);
+    $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";
     }

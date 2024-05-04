@@ -8,7 +8,7 @@ $curso = $_POST["curso"];
 
 $sql = "INSERT INTO materia(nombre, cantidad_hs, correlativas, curso)
         VALUES ('$nombre',$chs, '$corre',$curso)";
-$res = mysqli_query($mat,$sql);
+$res = mysqli_query($con,$sql);
 if ($res == TRUE){
   echo"<br>Se ha registrado correctamente!";
 }

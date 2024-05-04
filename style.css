@@ -6,6 +6,7 @@ h1{
     margin-left: 35%;
     margin-right: 35%;
     border-radius: 8px;
+    
 }
 input{
     padding-right: 200px;
@@ -16,9 +17,18 @@ input{
 }
 td{
     padding: 0px;
+    background-color: #D7D2F7;
+    border-color: black;
+    
 }
 table{
+
     background-color: black; 
     width: 600px;
     font-size: larger;
+}
+th{
+    background-color: #8279F7;
+    padding:  0px;
+    
 }

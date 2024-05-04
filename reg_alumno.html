@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registrar Alumno</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1 id="titulo" align="center">Ejercicio 1</h1>
+    <form  method="post" action="ProcesarReg_alumno.php">
+        <table
+      align="center"
+      border="2">
+    <tr bgcolor="#8279F7">
+        <td colspan="2"><center>Registrar Alumno</center></td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="dni">D.N.I.</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input  type="number" name="dni" id="dni" min="5000000" max="1000000000" placeholder="Ingrese el DNI">
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="fnac">Fecha de nacimiento</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input type="date" name="fnac" id="fnac">
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="nomyape" ">Nombre y Apellido </label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input  type="text" id="nomyape" name="nomyape" placeholder="Ingrese nombre y apellido." >
+
+        </td>
+    </tr>
+    
+    <tr>
+        <td bgcolor="#D7D2F7">
+            <label for="ciudad">Ciudad</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input  type="text" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad">
+
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="domicilio">Domicilio</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input  type="text" name="domicilio" id="domicilio" placeholder="Ingrese el domicilio">
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="genero">Genero</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input  type="text" name="genero" id="genero" placeholder="Ingrese el genero">
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="mail">Mail</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px">
+            <input  type="mail" name="mail" id="mail" placeholder="Ingrese el mail">
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#D7D2F7" height="40px">
+            <label for="telefono">Telefono</label>
+        </td>
+        <td bgcolor="#D7D2F7" height="40px" >
+            <input  type="text" id="telefono" name="telefono" placeholder="2964-12334567">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" 
+        bgcolor="#D7D2F7" 
+        align="center">
+            <input  type="submit" value="Enviar">
+            <input  type="reset" value="Borrar">
+        </td>
+    </tr>
+    </table>
+    </form>
+</body>
+
+
+</html>

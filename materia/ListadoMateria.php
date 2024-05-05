@@ -73,7 +73,7 @@
       </div>
     </nav>
 
-    <h1><center>Listado Materias</center></h1>
+    <h1 class="titulo"><center>Listado Materias</center></h1>
     <?php
     include("../conexion.php");
     $sql = "SELECT M.nombre, M.cantidad_hs, M.correlativas, M.curso FROM materia M";

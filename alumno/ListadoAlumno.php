@@ -73,7 +73,7 @@
       </div>
     </nav>
 
-    <h1><center>Listado Alumnos</center></h1>
+    <h1 class="titulo"><center>Listado Alumnos</center></h1>
     <?php
     include("../conexion.php");
     $sql = "SELECT A.apeynom, A.dni, A.fnac, A.ciudad FROM alumno A";
@@ -84,7 +84,7 @@
     else{ ?>
         <table border="5"  align="center" >
         <tr bgcolor="white">
-            <th > Nombre y Apellido </th>
+            <th> Nombre y Apellido </th>
             <th> DNI </th>
             <th> Ciudad </th>
             <th> Fecha de Nacimiento </th>

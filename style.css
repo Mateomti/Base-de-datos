@@ -1,10 +1,10 @@
 html{
     font-family: Arial, Helvetica, sans-serif;
 }
-h1{
+.titulo{
     background-color: lightblue;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 30%;
+    margin-right: 30%;
     border-radius: 8px;
     
 }
@@ -22,13 +22,11 @@ td{
     
 }
 table{
-
     background-color: black; 
-    width: 600px;
+    width: 650px;
     font-size: larger;
 }
 th{
     background-color: #8279F7;
     padding:  0px;
-    
 }

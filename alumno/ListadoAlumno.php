@@ -106,8 +106,8 @@
                 echo"<td><center>$vec[5]</center></td>";
                 echo"<td><center>$vec[6]</center></td>";
 
-                echo"<td><a href='mod_alumno.php'>Modificar</a></td>";
-                echo"<td>Eliminar</td>";
+                echo"<td><center>Modificar</center></td>";
+                echo"<td><center>Eliminar</center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>

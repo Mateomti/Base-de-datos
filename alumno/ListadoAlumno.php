@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
 </head>
-<body>
+<body class="bg-secondary">
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -76,28 +76,36 @@
     <h1 class="titulo"><center>Listado Alumnos</center></h1>
     <?php
     include("../conexion.php");
-    $sql = "SELECT A.apeynom, A.dni, A.fnac, A.ciudad FROM alumno A";
+    $sql = "SELECT A.apeynom, A.dni, A.fnac, A.ciudad, A.mail, A.genero, A.telefono FROM alumno A";
     $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";
     }
     else{ ?>
-        <table border="5"  align="center" >
-        <tr bgcolor="white">
-            <th> Nombre y Apellido </th>
-            <th> DNI </th>
-            <th> Ciudad </th>
-            <th> Fecha de Nacimiento </th>
-            <th> Modificar </th>
-            <th> Eliminar </th>
+        <table class="table table-bordered w-50" align="center"  >
+        <tr bgcolor=lightblue>
+            <th> <center>Nombre y Apellido</center> </th>
+            <th > <center>DNI</center> </th>
+            <th> <center>Ciudad</center> </th>
+            <th> <center>Fecha de Nacimiento</center> </th>
+            <th> <center>Mail</center></th>
+            <th> <center>Genero</center></th>
+            <th><center>Telefono</center></th>
+            <th> <center>Modificar</center> </th>
+            <th> <center>Eliminar</center> </th>
+            
         </tr>
         <?php
         while ($vec = mysqli_fetch_array($res)){
             echo"<tr bgcolor='white'>";
-                echo"<td>$vec[0]</td>";
-                echo"<td>$vec[1]</td>";
-                echo"<td>$vec[3]</td>";
-                echo"<td>$vec[2]</td>";
+                echo"<td><center>$vec[0]</center></td>";
+                echo"<td><center>$vec[1]</center></td>";
+                echo"<td><center>$vec[3]</center></td>";
+                echo"<td><center>$vec[2]</center></td>";
+                echo"<td><center>$vec[4]</center></td>";
+                echo"<td><center>$vec[5]</center></td>";
+                echo"<td><center>$vec[6]</center></td>";
+
                 echo"<td><a href='mod_alumno.php'>Modificar</a></td>";
                 echo"<td>Eliminar</td>";
             echo"</tr>";

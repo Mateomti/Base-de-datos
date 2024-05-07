@@ -6,6 +6,8 @@ html{
     margin-left: 30%;
     margin-right: 30%;
     border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     
 }
 input{
@@ -25,6 +27,7 @@ table{
     background-color: black; 
     width: 650px;
     font-size: larger;
+    margin-top: 20px;
 }
 th{
     background-color: #8279F7;

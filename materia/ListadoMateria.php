@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
 </head>
-<body>
+<body class="bg-secondary">
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -82,24 +82,24 @@
         echo"No hay alumnos registrados.";
     }
     else{ ?>
-        <table border="5"  align="center" >
+        <table align="center" class="table table-bordered w-50" >
         <tr bgcolor="white">
-            <th > Materia </th>
-            <th> Hs </th>
-            <th> Correlativas </th>
-            <th> Curso </th>
-            <th> Modificar </th>
-            <th> Eliminar </th>
+            <th > <center>Materia</center> </th>
+            <th> <center>Hs</center> </th>
+            <th> <center>Correlativas</center> </th>
+            <th><center>Curso</center> </th>
+            <th> <center>Modificar</center> </th>
+            <th> <center>Eliminar</center> </th>
         </tr>
         <?php
         while ($vec = mysqli_fetch_array($res)){
             echo"<tr bgcolor='white'>";
-                echo"<td>$vec[0]</td>";
-                echo"<td>$vec[1]</td>";
-                echo"<td>$vec[2]</td>";
-                echo"<td>$vec[3]</td>";
-                echo"<td><a href='#'>Modificar</a></td>";
-                echo"<td>Eliminar</td>";
+                echo"<td><center>$vec[0]</center></td>";
+                echo"<td><center>$vec[1]</center></td>";
+                echo"<td><center>$vec[2]</center></td>";
+                echo"<td><center>$vec[3]</center></td>";
+                echo"<td><center>Modificar</center></td>";
+                echo"<td><center>Eliminar</center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>

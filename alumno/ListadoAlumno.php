@@ -76,7 +76,7 @@
     <h1 class="titulo"><center>Listado Alumnos</center></h1>
     <?php
     include("../conexion.php");
-    $sql = "SELECT A.apeynom, A.dni, A.fnac, A.ciudad, A.mail, A.genero, A.telefono FROM alumno A";
+    $sql = "SELECT A.apeynom, A.dni, A.fnac, A.ciudad, A.mail, A.genero, A.telefono, A.id_alumno FROM alumno A";
     $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";
@@ -106,8 +106,8 @@
                 echo"<td><center>$vec[5]</center></td>";
                 echo"<td><center>$vec[6]</center></td>";
 
-                echo"<td><center>Modificar</center></td>";
-                echo"<td><center>Eliminar</center></td>";
+                echo"<td><center><a href='mod_alumno.php?id_a=$vec[7]'> Modificar</a></center></td>";
+                echo"<td><center><a href='eliminar_alu.php?id_a=$vec[7]'> Eliminar</a></center></center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>

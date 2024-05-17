@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <title>Ejercicio 1</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Ejercicio 1</a>
+        <a class="navbar-brand" href="../index.html">Ejercicio 1</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -45,13 +45,13 @@
                 Listado
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="alumno/ListadoAlumno.php">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="materia/ListadoMateria.php">Materias</a>
+                  <a class="dropdown-item" href="../materia/ListadoMateria.php">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="cursada/ListadoCursada.php">Cursada</a></li>
+                <li><a class="dropdown-item" href="ListadoCursada.php">Cursada</a></li>
               </ul>
             </li>
 
@@ -66,19 +66,52 @@
                 Registrar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="alumno/reg_alumno.html">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="materia/reg_materia.html">Materias</a>
+                  <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="reg_cursada.html">Cursada</a></li>
               </ul>
             </li>
             
         </div>
       </div>
     </nav>
-    <div class="titulo"><h1><center>Punto No1 Colegio - Laboratorio III</center></h1></div>
+    <h1 class="titulo"><center>Listado Cursada</center></h1>
+    <?php
+    include("../conexion.php");
+    $sql = "SELECT C.id_alumno,C.id_materia, C.nota1,C.nota2,C.asistencia FROM cursada C";
+    $res = mysqli_query($con,$sql);
+    if ($res == FALSE){
+        echo"No hay alumnos registrados.";
+    }
+    else{ ?>
+        <table align="center" class="table table-bordered w-50" >
+        <tr bgcolor="white">
+            <th> <center>Alumno</center> </th>
+            <th> <center>Materia</center> </th>
+            <th><center>Nota 1</center> </th>
+            <th> <center>Nota 2</center> </th>
+            <th> <center>Asistencia</center> </th>
+            <th> <center>Estado</center> </th>
+            <th> <center>Modificar</center> </th>
+            <th> <center>Eliminar</center> </th>
+        </tr>
+        <?php
+        while ($vec = mysqli_fetch_array($res)){
+            echo"<tr bgcolor='white'>";
+                echo"<td><center>$vec[0]</center></td>";
+                echo"<td><center>$vec[1]</center></td>";
+                echo"<td><center>$vec[2]</center></td>";
+                echo"<td><center>$vec[3]</center></td>";
+                echo"<td><center>$vec[4]</center></td>";
+                echo"<td><center>-</center></td>";
+                echo"<td><center>Modificar</center></td>";
+                echo"<td><center>Eliminar</center></td>";
+            echo"</tr>";
+        }echo"</table>";}
+        ?>
   </body>
 </html>

@@ -33,7 +33,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -47,6 +47,13 @@
                 <li>
                   <a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a>
                 </li>
+                <li><hr class="dropdown-divider" /></li>
+
+                <li>
+                  <a class="dropdown-item" href="ListadoMateria.php">Materias</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="../cursada/ListadoCursada.php">Cursada</a></li>
               </ul>
             </li>
 
@@ -61,11 +68,13 @@
                 Registrar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a></li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="reg_materia.html">Materias</a>
+                  <a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a>
                 </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="reg_materia.html">Materias</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="../cursada/reg_cursada.html">Cursada</a></li>
               </ul>
             </li>
             

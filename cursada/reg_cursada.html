@@ -44,13 +44,13 @@
                 Listado
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="ListadoAlumno.php">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" href="../materia/ListadoMateria.php">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="../cursada/ListadoCursada.php">Cursada</a></li>
+                <li><a class="dropdown-item" href="ListadoCursada.php">Cursada</a></li>
               </ul>
             </li>
 
@@ -65,92 +65,74 @@
                 Registrar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="reg_alumno.html">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="../cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="reg_cursada.html">Cursada</a></li>
               </ul>
             </li>
             
         </div>
       </div>
     </nav>
-    <form  method="post" action="ProcesarReg_alumno.php">
-    <h1 class="titulo"><center>Registrar Alumno</center></h1>
+    <form  method="post" action="Procesarreg_cursada.php">
+    <h1 class="titulo"><center>Registrar Cursada</center></h1>
       <table
       align="center"
       class="table table-bordered w-50">
     
     <tr>
         <td  height="40px">
-            <label for="dni">D.N.I.</label>
+            <label for="ida">Alumno</label>
         </td>
         <td  height="40px">
-            <input  type="number" name="dni" id="dni" min="5000000" max="1000000000" placeholder="Ingrese el DNI" >
+            <input type="number" name="ida" id="ida" placeholder="Ingrese el ID del alumno">
         </td>
     </tr>
     <tr>
-        <td  height="40px">
-            <label for="fnac">Fecha de nacimiento</label>
-        </td>
-        <td  height="40px">
-            <input type="date" name="fnac" id="fnac">
-        </td>
-    </tr>
-    <tr>
-        <td  height="40px">
-            <label for="nomyape" ">Nombre y Apellido </label>
-        </td>
-        <td bgcolor="#D7D2F7" height="40px">
-            <input  type="text" id="nomyape" name="nomyape" placeholder="Ingrese nombre y apellido." >
+      <td  height="40px">
+          <label for="idm">Materia</label>
+      </td>
+      <td  height="40px">
+        <input type="number" name="idm" id="idm" placeholder="Ingrese el ID de la materia">
 
-        </td>
-    </tr>
-    
-    <tr>
-        <td bgcolor
-            <label for="ciudad">Ciudad</label>
-        </td>
-        <td  height="40px">
-            <input  type="text" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad">
-
-        </td>
-    </tr>
-    <tr>
-        <td  height="40px">
-            <label for="domicilio">Domicilio</label>
-        </td>
-        <td  height="40px">
-            <input  type="text" name="domicilio" id="domicilio" placeholder="Ingrese el domicilio">
-        </td>
-    </tr>
-    <tr>
-        <td  height="40px">
-            <label for="genero">Genero</label>
-        </td>
-        <td  height="40px">
-            <input  type="text" name="genero" id="genero" placeholder="Ingrese el genero">
-        </td>
-    </tr>
-    <tr>
-        <td  height="40px">
-            <label for="mail">Mail</label>
-        </td>
-        <td  height="40px">
-            <input  type="mail" name="mail" id="mail" placeholder="Ingrese el mail">
-        </td>
-    </tr>
-    <tr>
-        <td  height="40px">
-            <label for="telefono">Telefono</label>
-        </td>
-        <td  height="40px" >
-            <input  type="text" id="telefono" name="telefono" placeholder="2964-12334567">
-        </td>
-    </tr>
+    </td>
+  </tr>
+  <tr>
+    <td  height="40px">
+        <label for="n1">Primer Nota</label>
+    </td>
+    <td  height="40px">
+        <input  type="number" name="n1" id="n1"  placeholder="Ingrese la primer nota" >
+    </td>
+  </tr>
+  <tr>
+    <td  height="40px">
+      <label for="n2">Segunda Nota</label>
+  </td>
+  <td  height="40px">
+      <input  type="number" name="n2" id="n2"  placeholder="Ingrese la segunda nota" >
+  </td>
+  </tr>
+  <tr>
+    <td  height="40px">
+        <label for="asis"> % de Asistencia</label>
+    </td>
+    <td  height="40px">
+        <input  type="number" name="asis" id="asis" placeholder="Ingrese el porcentaje de asistencia" >
+    </td>
+  </tr>
+  <tr>
+    <td  height="40px">
+        <label for="estado">Estado</label>
+    </td>
+    <td  height="40px">
+        <input  type="number" name="estado" id="estado"  placeholder="Estado del alumno" readonly >
+    </td>
+  </tr>
     <tr>
         <td colspan="2" 
         
@@ -165,3 +147,31 @@
 
 
 </html>
+
+<!--  ESTE ES EL CODIGO DE LA CURSADA CON EL SELECT
+  <tr>
+  <td  height="40px">
+      <label for="ida">Alumno</label>
+  </td>
+  <td  height="40px">
+      <select name="ida" id="ida">
+        <option value="Mateo">Mateo</option>
+        <option value="Renata">Renata</option>
+        <option value="Flor">Flor</option>
+        <option value="Santiago">Santiago</option>
+      </select>
+  </td>
+</tr>
+<tr>
+<td  height="40px">
+    <label for="idm">Materia</label>
+</td>
+<td  height="40px">
+  <select name="idm" id="idm">
+    <option value="mat">Matematica</option>
+    <option value="lengua">Lengua</option>
+    <option value="psic">Psicologia</option>
+    <option value="edf">Educacion Fisica</option>
+  </select>
+</td>
+</tr> -->

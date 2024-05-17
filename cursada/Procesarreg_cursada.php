@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <title>Ejercicio 1</title>
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="../style.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-  </head>
-  <body class="bg-secondary">
-    <script
+</head>
+<body class="bg-secondary">
+<script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
@@ -20,7 +19,7 @@
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Ejercicio 1</a>
+        <a class="navbar-brand" href="../index.html">Ejercicio 1</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -34,7 +33,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -51,7 +50,7 @@
                   <a class="dropdown-item" href="materia/ListadoMateria.php">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="cursada/ListadoCursada.php">Cursada</a></li>
+                <li><a class="dropdown-item" href="ListadoCursada.php">Cursada</a></li>
               </ul>
             </li>
 
@@ -72,13 +71,38 @@
                   <a class="dropdown-item" href="materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="reg_cursada.html">Cursada</a></li>
               </ul>
             </li>
             
         </div>
       </div>
     </nav>
-    <div class="titulo"><h1><center>Punto No1 Colegio - Laboratorio III</center></h1></div>
-  </body>
+    <?php
+  include("../conexion.php");
+  
+  $ida = $_POST["ida"];
+  $idm = $_POST["idm"];
+  $nota1 = $_POST["n1"];
+  $nota2 = $_POST["n2"];
+  $asis = $_POST["asis"];
+  $estado = $_POST["estado"];
+
+  $sql = "INSERT INTO cursada(id_alumno, id_materia, nota1, nota2, asistencia)
+          VALUES ($ida, $idm, $nota1, $nota2, $asis)";
+  
+  $res = mysqli_query($con, $sql);
+  if ($res == TRUE){
+    echo"<br>Se ha registrado con exito la cursada!";
+  }
+  else{
+    echo"<br>Ha ocurrido un error!";
+  }
+?>
+</body>
+
+
 </html>
+
+
+

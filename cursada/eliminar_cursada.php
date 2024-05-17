@@ -79,49 +79,20 @@
         </div>
       </div>
     </nav>
-    <h1 class="titulo"><center>Listado Cursada</center></h1>
     <?php
-    include("../conexion.php");
-    $sql = "SELECT C.id_alumno,C.id_materia, C.nota1,C.nota2,C.asistencia, C.id_cursada FROM cursada C";
-    $res = mysqli_query($con,$sql);
-    if ($res == FALSE){
-        echo"No hay alumnos registrados.";
-    }
-    else{ ?>
-        <table align="center" class="table table-bordered w-50" >
-        <tr bgcolor="white">
-            <th> <center>Alumno</center> </th>
-            <th> <center>Materia</center> </th>
-            <th><center>Nota 1</center> </th>
-            <th> <center>Nota 2</center> </th>
-            <th> <center>Asistencia</center> </th>
-            <th> <center>Estado</center> </th>
-            <th> <center>Modificar</center> </th>
-            <th> <center>Eliminar</center> </th>
-        </tr>
-        <?php
-        
+      include("../conexion.php");
+      $idc = $_GET['idc'];
+      $sql = "DELETE FROM `cursada` WHERE id_cursada = $idc";
+      $res = mysqli_query($con, $sql);
+      if($res == true){
+          echo"<h1 class='titulo'><center>Se ha eliminado con exito la cursada!</center></h1>";
+      }
+      else{
+          echo"<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
+      }
+    ?>
 
-
-
-        while ($vec = mysqli_fetch_array($res)){
-          $alu = "SELECT `apeynom`FROM `alumno` WHERE id_alumno = '$vec[0]'";
-          $ida = mysqli_query($con, $alu);
-          $idalu = mysqli_fetch_array($ida);
-          $mat = "SELECT `nombre`FROM `materia` WHERE id_materia = '$vec[1]'";
-          $idm = mysqli_query($con, $mat);
-          $idmat = mysqli_fetch_array($idm);
-            echo"<tr bgcolor='white'>";
-                echo"<td><center>$idalu[0]</center></td>";
-                echo"<td><center>$idmat[0]</center></td>";
-                echo"<td><center>$vec[2]</center></td>";
-                echo"<td><center>$vec[3]</center></td>";
-                echo"<td><center>$vec[4]</center></td>";
-                echo"<td><center>-</center></td>";
-                echo"<td><center><a href='Mod_cursada.php?idc=$vec[5]'>Modificar</a></center></td>";
-                echo"<td><center><a href='eliminar_cursada.php?idc=$vec[5]'>Eliminar</a></center></td>";
-            echo"</tr>";
-        }echo"</table>";}
-        ?>
+    
+    
   </body>
 </html>

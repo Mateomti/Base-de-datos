@@ -159,14 +159,7 @@
         <input  type="number" name="asis" id="asis" placeholder="Ingrese el porcentaje de asistencia" >
     </td>
   </tr>
-  <tr>
-    <td  height="40px">
-        <label for="estado">Estado</label>
-    </td>
-    <td  height="40px">
-        <input  type="number" name="estado" id="estado"  placeholder="Estado del alumno" readonly >
-    </td>
-  </tr>
+  
     <tr>
         <td colspan="2" 
         

@@ -82,7 +82,7 @@
     <h1 class="titulo"><center>Listado Cursada</center></h1>
     <?php
     include("../conexion.php");
-    $sql = "SELECT C.id_alumno,C.id_materia, C.nota1,C.nota2,C.asistencia, C.id_cursada FROM cursada C";
+    $sql = "SELECT C.id_alumno,C.id_materia, C.nota1,C.nota2,C.asistencia, C.id_cursada, C.estado FROM cursada C";
     $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";
@@ -117,7 +117,7 @@
                 echo"<td><center>$vec[2]</center></td>";
                 echo"<td><center>$vec[3]</center></td>";
                 echo"<td><center>$vec[4]</center></td>";
-                echo"<td><center>-</center></td>";
+                echo"<td><center>$vec[6]</center></td>";
                 echo"<td><center><a href='Mod_cursada.php?idc=$vec[5]'>Modificar</a></center></td>";
                 echo"<td><center><a href='eliminar_cursada.php?idc=$vec[5]'>Eliminar</a></center></td>";
             echo"</tr>";

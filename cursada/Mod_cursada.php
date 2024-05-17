@@ -176,7 +176,7 @@
         <label for="estado">Estado</label>
     </td>
     <td  height="40px">
-        <input  type="number" name="estado" id="estado"  placeholder="Estado del alumno" readonly >
+        <input  type="text" name="estado" id="estado"  placeholder="Estado del alumno" value="<?php echo$vec[6]?>" readonly >
     </td>
   </tr>
     <tr>

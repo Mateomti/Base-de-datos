@@ -72,7 +72,7 @@
                   <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
@@ -100,10 +100,20 @@
             <th> <center>Eliminar</center> </th>
         </tr>
         <?php
+        
+
+
+
         while ($vec = mysqli_fetch_array($res)){
+          $alu = "SELECT `apeynom`FROM `alumno` WHERE id_alumno = '$vec[0]'";
+          $ida = mysqli_query($con, $alu);
+          $idalu = mysqli_fetch_array($ida);
+          $mat = "SELECT `nombre`FROM `materia` WHERE id_materia = '$vec[1]'";
+          $idm = mysqli_query($con, $mat);
+          $idmat = mysqli_fetch_array($idm);
             echo"<tr bgcolor='white'>";
-                echo"<td><center>$vec[0]</center></td>";
-                echo"<td><center>$vec[1]</center></td>";
+                echo"<td><center>$idalu[0]</center></td>";
+                echo"<td><center>$idmat[0]</center></td>";
                 echo"<td><center>$vec[2]</center></td>";
                 echo"<td><center>$vec[3]</center></td>";
                 echo"<td><center>$vec[4]</center></td>";

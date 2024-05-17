@@ -79,34 +79,22 @@
       </div>
     </nav>
     <?php
-    include("../conexion.php");
+      include("../conexion.php");
+
+      $idm = $_GET["idm"];
+
+      $sql = "DELETE FROM materia WHERE id_materia =".$idm;
+      $res = mysqli_query($con,$sql);
+      if ($res == TRUE){
+        echo "<h1 class='titulo'><center>Se ha eliminado con exito!</center></h1>";
         
-        $ida = $_POST["ida"];
-        $dni = $_POST["dni"];
-        $fnac = $_POST["fnac"];
-        $nomyape = $_POST["nomyape"];
-        $ciudad = $_POST["ciudad"];
-        $domicilio = $_POST["domicilio"];
-        $mail = $_POST["mail"];
-        $genero = $_POST["genero"];
-        $telefono = $_POST["telefono"];
-
-        $sql = "UPDATE alumno SET dni=$dni, fnac='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
-        WHERE id_alumno = $ida";
-
-        $res = mysqli_query($con, $sql);
-        if ($res == TRUE){
-            echo "<h1 class='titulo'><center>Modificado correctamente!</center></h1>";
-            
-        }
-        else{
-            echo "Ha ocurrido un error.";
-        }
+    }
+    else{
+        echo "<h1 class='error'><center>Ha ocurrido un error</center></h1>";
+    }
     ?>
 
 </body>
 
 
 </html>
-
-

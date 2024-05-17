@@ -44,10 +44,10 @@
                 Listado
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="ListadoAlumno.php">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="../materia/ListadoMateria.php">Materias</a>
+                  <a class="dropdown-item" href="ListadoMateria.php">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="../cursada/ListadoCursada.php">Cursada</a></li>
@@ -65,10 +65,10 @@
                 Registrar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="reg_alumno.html">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
+                  <a class="dropdown-item" href="reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="../cursada/reg_cursada.php">Cursada</a></li>
@@ -81,26 +81,23 @@
     <?php
     include("../conexion.php");
         
-        $ida = $_POST["ida"];
-        $dni = $_POST["dni"];
-        $fnac = $_POST["fnac"];
-        $nomyape = $_POST["nomyape"];
-        $ciudad = $_POST["ciudad"];
-        $domicilio = $_POST["domicilio"];
-        $mail = $_POST["mail"];
-        $genero = $_POST["genero"];
-        $telefono = $_POST["telefono"];
+        $idm = $_POST["idm"];
+        $nombre = $_POST["nombre"]; 
+        $chs = $_POST["hs"];
+        $corre = $_POST["corre"];
+        $curso = $_POST["curso"];
 
-        $sql = "UPDATE alumno SET dni=$dni, fnac='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
-        WHERE id_alumno = $ida";
+
+        $sql = "UPDATE materia SET nombre='$nombre', cantidad_hs=$chs, correlativas='$corre', curso=$curso
+        WHERE id_materia = $idm";
 
         $res = mysqli_query($con, $sql);
         if ($res == TRUE){
-            echo "<h1 class='titulo'><center>Modificado correctamente!</center></h1>";
+            echo "<h1 class='titulo'><center>Modificacion exitosa!</center></h1>";
             
         }
         else{
-            echo "Ha ocurrido un error.";
+            echo "<h1 class='error'><center>Ha ocurrido un error</center></h1>";
         }
     ?>
 
@@ -108,5 +105,3 @@
 
 
 </html>
-
-

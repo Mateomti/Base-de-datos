@@ -71,7 +71,7 @@
                   <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="../cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="../cursada/reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
@@ -85,6 +85,12 @@
 
       $sql = "DELETE FROM Alumno WHERE id_alumno =".$ida;
       $res = mysqli_query($con,$sql);
+      if ($res == true){
+        echo "<h1 class='titulo'><center>Se ha eliminado con exito</center></h1>";
+      }
+      else{
+        echo"<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
+      }
     ?>
 
 </body>

@@ -74,7 +74,7 @@
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="reg_materia.html">Materias</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="../cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="../cursada/reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
@@ -93,7 +93,7 @@
                 VALUES ('$nombre',$chs, '$corre',$curso)";
         $res = mysqli_query($con,$sql);
         if ($res == TRUE){
-          echo"<br>Se ha registrado correctamente!";
+          echo"<h1 class='titulo'><center>Se ha registrado correctamente!</center></h1>";
         }
         else{
           echo"<br>Ha ocurrido un error inesperado!";

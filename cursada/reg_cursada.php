@@ -71,13 +71,36 @@
                   <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
         </div>
       </div>
     </nav>
+    <?php
+    include("../conexion.php");
+
+    $sql1 = "SELECT * FROM alumno";
+    $res1 = mysqli_query($con, $sql1);
+    $matriz1 = [];
+    if ($res1) {
+        while ($row = mysqli_fetch_array($res1, MYSQLI_ASSOC)) {
+            $matriz1[] = $row['apeynom'];
+        }
+    }
+    $sql2 = "SELECT * FROM materia";
+    $res2 = mysqli_query($con, $sql2);
+    $matriz2 = [];
+    if ($res2) {
+        while ($row = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
+            $matriz2[] = $row['nombre'];
+        }
+    }
+
+    ?>
+
+
     <form  method="post" action="Procesarreg_cursada.php">
     <h1 class="titulo"><center>Registrar Cursada</center></h1>
       <table
@@ -89,7 +112,13 @@
             <label for="ida">Alumno</label>
         </td>
         <td  height="40px">
-            <input type="number" name="ida" id="ida" placeholder="Ingrese el ID del alumno">
+              <select name="nombre" id="nombre">
+                <?php
+                foreach ($matriz1 as $nombre) {
+                    echo "<option value=\"$nombre\">$nombre</option>";
+                }
+                ?>
+              </select>
         </td>
     </tr>
     <tr>
@@ -97,9 +126,14 @@
           <label for="idm">Materia</label>
       </td>
       <td  height="40px">
-        <input type="number" name="idm" id="idm" placeholder="Ingrese el ID de la materia">
-
-    </td>
+              <select name="materia" id="materia">
+                <?php
+                foreach ($matriz2 as $materia) {
+                    echo "<option value=\"$materia\">$materia</option>";
+                }
+                ?>
+              </select>
+        </td>
   </tr>
   <tr>
     <td  height="40px">

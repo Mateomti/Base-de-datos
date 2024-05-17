@@ -74,7 +74,7 @@
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="reg_materia.html">Materias</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="../cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="../cursada/reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
@@ -85,7 +85,7 @@
     <h1 class="titulo"><center>Listado Materias</center></h1>
     <?php
     include("../conexion.php");
-    $sql = "SELECT M.nombre, M.cantidad_hs, M.correlativas, M.curso FROM materia M";
+    $sql = "SELECT M.nombre, M.cantidad_hs, M.correlativas, M.curso, M.id_materia FROM materia M";
     $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";
@@ -100,6 +100,7 @@
             <th> <center>Modificar</center> </th>
             <th> <center>Eliminar</center> </th>
         </tr>
+        
         <?php
         while ($vec = mysqli_fetch_array($res)){
             echo"<tr bgcolor='white'>";
@@ -107,8 +108,8 @@
                 echo"<td><center>$vec[1]</center></td>";
                 echo"<td><center>$vec[2]</center></td>";
                 echo"<td><center>$vec[3]</center></td>";
-                echo"<td><center>Modificar</center></td>";
-                echo"<td><center>Eliminar</center></td>";
+                echo"<td><center><a href='Mod_materia.php?idm=$vec[4]'>Modificar</a></center></td>";
+                echo"<td><center><a href='Eliminar_materia.php?idm=$vec[4]'>Eliminar</a></center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>

@@ -71,7 +71,7 @@
                   <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="../cursada/reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="../cursada/reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
@@ -94,7 +94,7 @@
                 VALUES($dni, '$fnac', '$nomyape', '$ciudad', '$domicilio', '$mail', '$genero', '$telefono')";
         $res = mysqli_query($con, $sql);
         if ($res == TRUE){
-            echo "<br>Registro exitoso!";
+            echo "<h1 class='titulo'><center>Se ha registrado correctamente!</center></h1>";
             
         }
         else{

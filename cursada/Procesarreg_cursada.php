@@ -71,7 +71,7 @@
                   <a class="dropdown-item" href="materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="reg_cursada.html">Cursada</a></li>
+                <li><a class="dropdown-item" href="reg_cursada.php">Cursada</a></li>
               </ul>
             </li>
             
@@ -81,19 +81,25 @@
     <?php
   include("../conexion.php");
   
-  $ida = $_POST["ida"];
-  $idm = $_POST["idm"];
+  $alumno = $_POST["nombre"];
+  $materia = $_POST["materia"];
   $nota1 = $_POST["n1"];
   $nota2 = $_POST["n2"];
   $asis = $_POST["asis"];
   $estado = $_POST["estado"];
 
+  $alu = "SELECT `id_alumno`FROM `alumno` WHERE apeynom = '$alumno'";
+  $ida = mysqli_query($con, $alu);
+  $idalu = mysqli_fetch_array($ida);
+  $mat = "SELECT `id_materia`FROM `materia` WHERE nombre = '$materia'";
+  $idm = mysqli_query($con, $mat);
+  $idmat = mysqli_fetch_array($idm);
+
   $sql = "INSERT INTO cursada(id_alumno, id_materia, nota1, nota2, asistencia)
-          VALUES ($ida, $idm, $nota1, $nota2, $asis)";
-  
+          VALUES ($idalu[0], $idmat[0], $nota1, $nota2, $asis)";
   $res = mysqli_query($con, $sql);
   if ($res == TRUE){
-    echo"<br>Se ha registrado con exito la cursada!";
+    echo"<h1 class='titulo'>Se ha registrado con exito la cursada!</h1>";
   }
   else{
     echo"<br>Ha ocurrido un error!";

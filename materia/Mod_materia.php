@@ -44,10 +44,13 @@
                 Listado
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="ListadoAlumno.php">Alumnos</a></li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="../materia/ListadoMateria.php">Materias</a>
+                  <a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+
+                <li>
+                  <a class="dropdown-item" href="ListadoMateria.php">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="../cursada/ListadoCursada.php">Cursada</a></li>
@@ -65,11 +68,11 @@
                 Registrar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="reg_alumno.html">Alumnos</a></li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
+                  <a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a>
                 </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="reg_materia.html">Materias</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="../cursada/reg_cursada.php">Cursada</a></li>
               </ul>
@@ -80,33 +83,74 @@
     </nav>
     <?php
     include("../conexion.php");
-        
-        $ida = $_POST["ida"];
-        $dni = $_POST["dni"];
-        $fnac = $_POST["fnac"];
-        $nomyape = $_POST["nomyape"];
-        $ciudad = $_POST["ciudad"];
-        $domicilio = $_POST["domicilio"];
-        $mail = $_POST["mail"];
-        $genero = $_POST["genero"];
-        $telefono = $_POST["telefono"];
 
-        $sql = "UPDATE alumno SET dni=$dni, fnac='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
-        WHERE id_alumno = $ida";
+    $idm = $_GET["idm"];
 
-        $res = mysqli_query($con, $sql);
-        if ($res == TRUE){
-            echo "<h1 class='titulo'><center>Modificado correctamente!</center></h1>";
-            
-        }
-        else{
-            echo "Ha ocurrido un error.";
-        }
+    $sql = "SELECT * FROM materia WHERE id_materia =".$idm;
+    $res = mysqli_query($con,$sql);
+    $vec = mysqli_fetch_array($res);
     ?>
 
+    <form  method="post" action="ProcesarMod_materia.php">
+    <h1 class="titulo"><center>Modificar Materia</center></h1>
+      <table
+      align="center"
+      class="table table-bordered w-50">
+      <tr>
+      <td  height="40px">
+          <label for="idm">Id de la materia</label>
+      </td>
+      <td bgcolor="#D7D2F7" height="40px">
+          <input  type="text" id="idm" name="idm" value="<?php echo$vec[0]?>" readonly>
+
+      </td>
+  </tr>
+    <tr>
+      <td  height="40px">
+          <label for="nombre" ">Nombre de la materia</label>
+      </td>
+      <td bgcolor="#D7D2F7" height="40px">
+          <input  type="text" id="nombre" name="nombre" placeholder="Ingrese la materia" value="<?php echo$vec[1]?>">
+
+      </td>
+  </tr>
+    <tr>
+        <td  height="40px">
+            <label for="hs">Cantidad de horas</label>
+        </td>
+        <td  height="40px">
+            <input  type="number" name="hs" id="hs" min="1" max="100000000000000000" placeholder="Ingrese la cantidad " value="<?php echo$vec[2]?>">
+        </td>
+    </tr>
+    <tr>
+      <td  height="40px">
+          <label for="corre" ">Tiene correlativas</label>
+      </td>
+      <td bgcolor="#D7D2F7" height="40px">
+          <input  type="text" id="corre" name="corre" placeholder="Si o No" value="<?php echo$vec[3]?>">
+
+      </td>
+  </tr>
+    <tr>
+        <td  height="40px">
+            <label for="curso">Ingrese el curso</label>
+        </td>
+        <td  height="40px">
+            <input  type="number" name="curso" id="curso" min="1" max="200000000000000000" placeholder="Curso 1 o 2" value="<?php echo$vec[4]?>">
+        </td>
+    </tr>
+    
+    <tr>
+        <td colspan="2" 
+        
+        align="center">
+            <input  type="submit" value="Enviar">
+            <input  type="reset" value="Borrar">
+        </td>
+    </tr>
+    </table>
+    </form>
 </body>
 
 
 </html>
-
-

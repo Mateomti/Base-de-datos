@@ -86,20 +86,8 @@
   $materia = $_POST["materia"];
   $nota1 = $_POST["n1"];
   $nota2 = $_POST["n2"];
-  $asis = $_POST["asis"]; 
-
-if ($nota1 >= 6 && $nota2 >= 6 && $asis >= 70 && $asis < 80 ){
-    $estado = "Regular";
-};
-if ($nota1 <= 4 || $nota2 <= 4){
-    $estado = "Desaprobado";
-};
-if ($nota1 >= 8 && $nota2 >= 8 && $asis >= 80){
-    $estado = "Promocionado";
-};
-if ($asis < 70){
-    $estado = "Libre";
-};
+  $asis = $_POST["asis"];
+  $estado = $_POST["estado"];
   
   
 

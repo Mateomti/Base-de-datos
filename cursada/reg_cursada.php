@@ -9,6 +9,8 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/funcion.js"></script>
 </head>
 <body class="bg-secondary">
 <script
@@ -160,6 +162,15 @@
     </td>
     <td  height="40px">
         <input  type="number" name="asis" id="asis" placeholder="Ingrese el porcentaje de asistencia" >
+    </td>
+  </tr>
+  <tr>
+    <td  height="40px">
+        <label for="estado">Estado</label>
+    </td>
+    <td  height="40px">
+      <input type="text" value="Estado alumno" id="estado" name="estado" readonly>
+        <input type="button" value="Ver estado" id="ver" name="ver">
     </td>
   </tr>
   

@@ -9,8 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../js/funcion.js"></script>
+    
 </head>
 <body class="bg-secondary">
 <script
@@ -88,19 +87,7 @@
   $nota1 = $_POST["n1"];
   $nota2 = $_POST["n2"];
   $asis = $_POST["asis"];
-
-  if ($nota1 >= 6 && $nota2 >= 6 && $asis >= 70 && $asis < 80 ){
-    $estado = "Regular";
-};
-if ($nota1 <= 4 || $nota2 <= 4){
-    $estado = "Desaprobado";
-};
-if ($nota1 >= 8 && $nota2 >= 8 && $asis >= 80){
-    $estado = "Promocionado";
-};
-if ($asis < 70){
-    $estado = "Libre";
-};
+  $estado = $_POST["estado"];
 
   $alu = "SELECT `id_alumno`FROM `alumno` WHERE apeynom = '$alumno'";
   $ida = mysqli_query($con, $alu);

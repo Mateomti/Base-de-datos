@@ -189,30 +189,3 @@
 
 </html>
 
-<!--  ESTE ES EL CODIGO DE LA CURSADA CON EL SELECT
-  <tr>
-  <td  height="40px">
-      <label for="ida">Alumno</label>
-  </td>
-  <td  height="40px">
-      <select name="ida" id="ida">
-        <option value="Mateo">Mateo</option>
-        <option value="Renata">Renata</option>
-        <option value="Flor">Flor</option>
-        <option value="Santiago">Santiago</option>
-      </select>
-  </td>
-</tr>
-<tr>
-<td  height="40px">
-    <label for="idm">Materia</label>
-</td>
-<td  height="40px">
-  <select name="idm" id="idm">
-    <option value="mat">Matematica</option>
-    <option value="lengua">Lengua</option>
-    <option value="psic">Psicologia</option>
-    <option value="edf">Educacion Fisica</option>
-  </select>
-</td>
-</tr> -->

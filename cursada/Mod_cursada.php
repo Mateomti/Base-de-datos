@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../js/funcion.js"></script>
+    <script type="text/javascript" src="../js/mod.js"></script>
   </head>
   <body class="bg-secondary">
     <script
@@ -90,20 +90,22 @@
 
       $sql1 = "SELECT * FROM alumno";
       $res1 = mysqli_query($con, $sql1);
-      $matriz1 = [];
-      if ($res1) {
-        while ($row = mysqli_fetch_array($res1, MYSQLI_ASSOC)) {
-            $matriz1[] = $row['apeynom'];
-        }
-      }
+      
+      // $matriz1 = [];
+      // if ($res1) {
+      //   while ($row = mysqli_fetch_array($res1, MYSQLI_ASSOC)) {
+      //       $matriz1[] = $row['apeynom'];
+      //   }
+      // }
       $sql2 = "SELECT * FROM materia";
       $res2 = mysqli_query($con, $sql2);
-      $matriz2 = [];
-      if ($res2) {
-          while ($row = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
-              $matriz2[] = $row['nombre'];
-          }
-      }
+
+      // $matriz2 = [];
+      // if ($res2) {
+      //     while ($row = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
+      //         $matriz2[] = $row['nombre'];
+      //     }
+      // }
 
     ?>
 
@@ -128,8 +130,8 @@
         <td  height="40px">
               <select name="nombre" id="nombre">
                 <?php
-                foreach ($matriz1 as $nombre) {
-                    echo "<option value=\"$nombre\">$nombre</option>";
+                while ($veca = mysqli_fetch_array($res1)){
+                  echo"<option value='$veca[0]'>$veca[3]</option>";
                 }
                 ?>
               </select>
@@ -141,9 +143,9 @@
       </td>
       <td  height="40px">
               <select name="materia" id="materia">
-                <?php
-                foreach ($matriz2 as $materia) {
-                    echo "<option value=\"$materia\">$materia</option>";
+              <?php
+                while ($vecm = mysqli_fetch_array($res2)){
+                  echo"<option value='$vecm[0]'>$vecm[1]</option>";
                 }
                 ?>
               </select>

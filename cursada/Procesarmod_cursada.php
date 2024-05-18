@@ -44,10 +44,10 @@
                 Listado
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="alumno/ListadoAlumno.php">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="materia/ListadoMateria.php">Materias</a>
+                  <a class="dropdown-item" href="../materia/ListadoMateria.php">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="ListadoCursada.php">Cursada</a></li>
@@ -65,10 +65,10 @@
                 Registrar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="alumno/reg_alumno.html">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/reg_alumno.html">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="materia/reg_materia.html">Materias</a>
+                  <a class="dropdown-item" href="../materia/reg_materia.html">Materias</a>
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="reg_cursada.php">Cursada</a></li>
@@ -86,10 +86,9 @@
   $materia = $_POST["materia"];
   $nota1 = $_POST["n1"];
   $nota2 = $_POST["n2"];
-  $asis = $_POST["asis"];
-  $estado = $_POST["estado"];
+  $asis = $_POST["asis"]; 
 
-  if ($nota1 >= 6 && $nota2 >= 6 && $asis >= 70 && $asis < 80 ){
+if ($nota1 >= 6 && $nota2 >= 6 && $asis >= 70 && $asis < 80 ){
     $estado = "Regular";
 };
 if ($nota1 <= 4 || $nota2 <= 4){
@@ -111,7 +110,6 @@ if ($asis < 70){
   $mat = "SELECT `id_materia`FROM `materia` WHERE nombre = '$materia'";
   $idm = mysqli_query($con, $mat);
   $idmat = mysqli_fetch_array($idm);
-
   $sql = "UPDATE cursada SET id_alumno=$idalu[0], id_materia=$idmat[0], nota1=$nota1, nota2=$nota2, asistencia=$asis, estado='$estado'
           WHERE id_cursada = $idc";
   $res = mysqli_query($con, $sql);

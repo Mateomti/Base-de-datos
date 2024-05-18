@@ -88,7 +88,6 @@
   $nota1 = $_POST["n1"];
   $nota2 = $_POST["n2"];
   $asis = $_POST["asis"];
-  $estado = $_POST["estado"];
 
   if ($nota1 >= 6 && $nota2 >= 6 && $asis >= 70 && $asis < 80 ){
     $estado = "Regular";

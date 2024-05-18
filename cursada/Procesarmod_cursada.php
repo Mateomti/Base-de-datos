@@ -98,7 +98,9 @@
   $mat = "SELECT `id_materia`FROM `materia` WHERE nombre = '$materia'";
   $idm = mysqli_query($con, $mat);
   $idmat = mysqli_fetch_array($idm);
-  $sql = "UPDATE cursada SET id_alumno=$idalu[0], id_materia=$idmat[0], nota1=$nota1, nota2=$nota2, asistencia=$asis, estado='$estado'
+
+
+$sql = "UPDATE cursada SET id_alumno=$idalu[0], id_materia=$idmat[0], nota1=$nota1, nota2=$nota2, asistencia=$asis, estado='$estado'
           WHERE id_cursada = $idc";
   $res = mysqli_query($con, $sql);
   if ($res == TRUE){

@@ -89,15 +89,15 @@
   $asis = $_POST["asis"];
   $estado = $_POST["estado"];
 
-  $alu = "SELECT `id_alumno`FROM `alumno` WHERE apeynom = '$alumno'";
-  $ida = mysqli_query($con, $alu);
-  $idalu = mysqli_fetch_array($ida);
-  $mat = "SELECT `id_materia`FROM `materia` WHERE nombre = '$materia'";
-  $idm = mysqli_query($con, $mat);
-  $idmat = mysqli_fetch_array($idm);
+  // $alu = "SELECT `id_alumno`FROM `alumno` WHERE apeynom = '$alumno'";
+  // $ida = mysqli_query($con, $alu);
+  // $idalu = mysqli_fetch_array($ida);
+  // $mat = "SELECT `id_materia`FROM `materia` WHERE nombre = '$materia'";
+  // $idm = mysqli_query($con, $mat);
+  // $idmat = mysqli_fetch_array($idm);
 
   $sql = "INSERT INTO cursada(id_alumno, id_materia, nota1, nota2, asistencia, estado)
-          VALUES ($idalu[0], $idmat[0], $nota1, $nota2, $asis, '$estado')";
+          VALUES ($alumno, $materia, $nota1, $nota2, $asis, '$estado')";
   $res = mysqli_query($con, $sql);
   if ($res == TRUE){
     echo"<h1 class='titulo'>Se ha registrado con exito la cursada!</h1>";

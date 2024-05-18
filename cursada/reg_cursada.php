@@ -86,22 +86,22 @@
     <?php
     include("../conexion.php");
 
-    $sql1 = "SELECT * FROM alumno";
+    $sql1 = "SELECT A.id_alumno, A.apeynom, A.dni FROM alumno A";
     $res1 = mysqli_query($con, $sql1);
-    $matriz1 = [];
-    if ($res1) {
-        while ($row = mysqli_fetch_array($res1, MYSQLI_ASSOC)) {
-            $matriz1[] = $row['apeynom'];
-        }
-    }
+    // $matriz1 = [];
+    // if ($res1) {
+    //     while ($row = mysqli_fetch_array($res1, MYSQLI_ASSOC)) {
+    //         $matriz1[] = $row['apeynom'];
+    //     }
+    // }
     $sql2 = "SELECT * FROM materia";
     $res2 = mysqli_query($con, $sql2);
-    $matriz2 = [];
-    if ($res2) {
-        while ($row = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
-            $matriz2[] = $row['nombre'];
-        }
-    }
+    // $matriz2 = [];
+    // if ($res2) {
+    //     while ($row = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
+    //         $matriz2[] = $row['nombre'];
+    //     }
+    // }
 
     ?>
 
@@ -119,8 +119,8 @@
         <td  height="40px">
               <select name="nombre" id="nombre">
                 <?php
-                foreach ($matriz1 as $nombre) {
-                    echo "<option value=\"$nombre\">$nombre</option>";
+                while ($vec1 = mysqli_fetch_array($res1)) {
+                    echo "<option value='$vec1[0]'> $vec1[1] </option>";
                 }
                 ?>
               </select>
@@ -132,9 +132,9 @@
       </td>
       <td  height="40px">
               <select name="materia" id="materia">
-                <?php
-                foreach ($matriz2 as $materia) {
-                    echo "<option value=\"$materia\">$materia</option>";
+              <?php
+                while ($vec2 = mysqli_fetch_array($res2)) {
+                    echo "<option value='$vec2[0]'> $vec2[1] </option>";
                 }
                 ?>
               </select>

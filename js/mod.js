@@ -11,7 +11,7 @@ $(document).ready(function(){
       $("#estado").val(estado);
     };
 
-    if (nota1 >= 5 && nota2 >= 5 && asis >= 70 && asis <= 80 ){
+    if (nota1 >= 5 && nota2 >= 5 && asis >= 70 && asis < 80 ){
       estado = "Regular";
       $("#estado").val(estado);
     };

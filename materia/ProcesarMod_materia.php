@@ -87,17 +87,28 @@
         $corre = $_POST["corre"];
         $curso = $_POST["curso"];
 
-
-        $sql = "UPDATE materia SET nombre='$nombre', cantidad_hs=$chs, correlativas='$corre', curso=$curso
-        WHERE id_materia = $idm";
-
-        $res = mysqli_query($con, $sql);
-        if ($res == TRUE){
-            echo "<h1 class='titulo'><center>Modificacion exitosa!</center></h1>";
-            
+        // Comprobrar nombre de la materia
+        $cnom = "SELECT nombre FROM `materia` WHERE nombre='$nombre'";
+        $comprobar_nombre = mysqli_query($con, $cnom);
+        $vcnom = mysqli_fetch_array($comprobar_nombre);
+        
+        if ($vcnom){
+          echo
+          "<script>
+            alert('El nombre de la materia ya está registrado.');
+            window.location.href = 'ListadoMateria.php';
+          </script>";
         }
         else{
-            echo "<h1 class='error'><center>Ha ocurrido un error</center></h1>";
+          $sql = "UPDATE materia SET nombre='$nombre', cantidad_hs=$chs, correlativas='$corre', curso=$curso
+                  WHERE id_materia = $idm";
+          $res = mysqli_query($con,$sql);
+          if ($res == TRUE){
+            echo"<h1 class='titulo'><center>Se ha modificado correctamente!</center></h1>";
+          }
+          else{
+            echo"<br>Ha ocurrido un error inesperado!";
+          }
         }
     ?>
 

@@ -88,23 +88,28 @@
   $nota2 = $_POST["n2"];
   $asis = $_POST["asis"];
   $estado = $_POST["estado"];
-  
-  // $alu = "SELECT `id_alumno`FROM `alumno` WHERE apeynom = '$alumno'";
-  // $ida = mysqli_query($con, $alu);
-  // $idalu = mysqli_fetch_array($ida);
-  // $mat = "SELECT `id_materia`FROM `materia` WHERE nombre = '$materia'";
-  // $idm = mysqli_query($con, $mat);
-  // $idmat = mysqli_fetch_array($idm);
-
-  $sql = "INSERT INTO cursada(id_alumno, id_materia, nota1, nota2, asistencia, estado)
-          VALUES ($alumno, $materia, $nota1, $nota2, $asis, '$estado')";
-  $res = mysqli_query($con, $sql);
-  if ($res == TRUE){
-    echo"<h1 class='titulo'>Se ha registrado con exito la cursada!</h1>";
+  //comprobar que no exista una cursada con el mismo alumno y materia
+  $verificacion = "SELECT id_alumno, id_materia FROM cursada WHERE id_alumno=$alumno AND id_materia=$materia";
+  $ver = mysqli_query($con, $verificacion);
+  $valor = mysqli_fetch_array($ver);
+  if ($valor[0] == $alumno && $valor[1] == $materia){
+    echo"<script>
+      alert('El alumno ya está registrada en una cursada de esa materia.');
+      window.location.href = 'reg_cursada.php';
+    </script>";
   }
   else{
-    echo"<br>Ha ocurrido un error!";
+    $sql = "INSERT INTO cursada(id_alumno, id_materia, nota1, nota2, asistencia, estado)
+            VALUES ($alumno, $materia, $nota1, $nota2, $asis, '$estado')";
+    $res = mysqli_query($con, $sql);
+    if ($res == TRUE){
+      echo"<h1 class='titulo'>Se ha registrado con exito la cursada!</h1>";
+    }
+    else{
+      echo"<br>Ha ocurrido un error!";
+    }
   }
+  
 ?>
 </body>
 

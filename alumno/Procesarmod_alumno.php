@@ -91,16 +91,40 @@
         $genero = $_POST["genero"];
         $telefono = $_POST["telefono"];
 
-        $sql = "UPDATE alumno SET dni=$dni, fnac='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
-        WHERE id_alumno = $ida";
+        // Comprobar DNI 
+        $cdni = "SELECT dni FROM `alumno` WHERE dni=$dni";
+        $comprobar_dni = mysqli_query($con, $cdni);
+        $vcdni = mysqli_fetch_array($comprobar_dni);
 
-        $res = mysqli_query($con, $sql);
-        if ($res == TRUE){
-            echo "<h1 class='titulo'><center>Modificado correctamente!</center></h1>";
-            
+        // Comprobar mail
+        $cmail = "SELECT mail FROM `alumno` WHERE mail='$mail'";
+        $comprobar_mail = mysqli_query($con, $cmail);
+        $vcmail = mysqli_fetch_array($comprobar_mail);
+        if ($vcmail){
+          echo "<script>
+                  alert('El email ingresado ya está registrado. Reingrese un email valido.');
+                  window.location.href = 'ListadoAlumno.html';
+                </script>";
         }
         else{
-            echo "Ha ocurrido un error.";
+
+          if ($vcdni){
+            echo "<script>
+                    alert('El DNI ingresado ya está registrado. Reingrese un DNI valido.');
+                    window.location.href = 'ListadoAlumno.php';
+                  </script>";
+          }
+          else{
+            $sql = "UPDATE alumno SET dni=$dni, fnac='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
+                    WHERE id_alumno = $ida";
+            $res = mysqli_query($con, $sql);
+            if ($res == TRUE){
+              echo "<h1 class='titulo'><center>Se ha modificado correctamente!</center></h1>";                  
+            }
+            else{
+              echo "Ha ocurrido un error.";
+            }
+          }
         }
     ?>
 

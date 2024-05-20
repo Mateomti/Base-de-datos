@@ -80,17 +80,35 @@
     </nav>
     <?php
       include("../conexion.php");
-
       $ida = $_GET["id_a"];
-
-      $sql = "DELETE FROM Alumno WHERE id_alumno =".$ida;
-      $res = mysqli_query($con,$sql);
-      if ($res == true){
-        echo "<h1 class='titulo'><center>Se ha eliminado con exito</center></h1>";
+      $verificar_cursada = "SELECT id_alumno FROM cursada WHERE id_alumno = $ida";
+      $ver = mysqli_query($con,$verificar_cursada);
+      $valor = mysqli_fetch_array($ver);
+      if ($valor){
+        echo"<script>
+              alert('No se puede eliminar a este alumno porque está registrado en una cursada.');
+              window.location.href = 'ListadoAlumno.php';
+            </script>";
       }
       else{
-        echo"<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
+        $sql = "DELETE FROM Alumno WHERE id_alumno =".$ida;
+        $res = mysqli_query($con,$sql);
+        if ($res == true){
+          echo"<script>
+                alert('El alumno a sido eliminado con exito!');
+                window.location.href = 'Listadoalumno.php';
+              </script>";
+        }
+        else{
+          echo"<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
+        }
       }
+
+
+
+
+
+      
     ?>
 
 </body>

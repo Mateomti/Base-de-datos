@@ -89,15 +89,30 @@
         $corre = $_POST["corre"];
         $curso = $_POST["curso"];
 
-        $sql = "INSERT INTO materia(nombre, cantidad_hs, correlativas, curso)
-                VALUES ('$nombre',$chs, '$corre',$curso)";
-        $res = mysqli_query($con,$sql);
-        if ($res == TRUE){
-          echo"<h1 class='titulo'><center>Se ha registrado correctamente!</center></h1>";
+        // Comprobrar nombre de la materia
+        $cnom = "SELECT nombre FROM `materia` WHERE nombre='$nombre'";
+        $comprobar_nombre = mysqli_query($con, $cnom);
+        $vcnom = mysqli_fetch_array($comprobar_nombre);
+
+        if ($vcnom){
+          echo
+          "<script>
+          alert('El nombre de la materia ya está registrado.');
+          window.location.href = 'reg_materia';
+          </script>";
         }
         else{
-          echo"<br>Ha ocurrido un error inesperado!";
+          $sql = "INSERT INTO materia(nombre, cantidad_hs, correlativas, curso)
+                  VALUES ('$nombre',$chs, '$corre',$curso)";
+          $res = mysqli_query($con,$sql);
+          if ($res == TRUE){
+            echo"<h1 class='titulo'><center>Se ha registrado correctamente!</center></h1>";
+          }
+          else{
+            echo"<br>Ha ocurrido un error inesperado!";
+          }
         }
+        
     ?>
 </body>
 

@@ -82,16 +82,30 @@
       include("../conexion.php");
 
       $idm = $_GET["idm"];
+      $verificar_materia = "SELECT id_materia FROM cursada WHERE id_materia = $idm";
+      $ver = mysqli_query($con,$verificar_materia);
+      $valor = mysqli_fetch_array($ver);
+      if ($valor){
+        echo"<script>
+          alert('No se puede eliminar la materia porque está registrada en una cursada.');
+          window.location.href = 'ListadoMateria.php';
+        </script>";
+      }
+      else{
+        $sql = "DELETE FROM materia WHERE id_materia =".$idm;
+        $res = mysqli_query($con,$sql);
+        if ($res == TRUE){
+          echo"<script>
+                alert('La materia a sido eliminada con exito!');
+                window.location.href = 'ListadoMateria.php';
+              </script>";
+        }
+        else{
+            echo "<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
+        }
+      }
 
-      $sql = "DELETE FROM materia WHERE id_materia =".$idm;
-      $res = mysqli_query($con,$sql);
-      if ($res == TRUE){
-        echo"<h1 class='titulo'><center>Se eliminado correctamente la materia!</center></h1>";
-        
-    }
-    else{
-        echo "<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
-    }
+      
     ?>
 
 </body>

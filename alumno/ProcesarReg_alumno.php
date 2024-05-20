@@ -89,17 +89,43 @@
         $mail = $_POST["mail"];
         $genero = $_POST["genero"];
         $telefono = $_POST["telefono"];
+        
+        // Comprobar DNI 
+        $cdni = "SELECT dni FROM `alumno` WHERE dni=$dni";
+        $comprobar_dni = mysqli_query($con, $cdni);
+        $vcdni = mysqli_fetch_array($comprobar_dni);
 
-        $sql = "INSERT INTO alumno(dni, fnac, apeynom, ciudad, domicilio, mail, genero, telefono)
-                VALUES($dni, '$fnac', '$nomyape', '$ciudad', '$domicilio', '$mail', '$genero', '$telefono')";
-        $res = mysqli_query($con, $sql);
-        if ($res == TRUE){
-            echo "<h1 class='titulo'><center>Se ha registrado correctamente!</center></h1>";
-            
+        // Comprobar mail
+        $cmail = "SELECT mail FROM `alumno` WHERE mail='$mail'";
+        $comprobar_mail = mysqli_query($con, $cmail);
+        $vcmail = mysqli_fetch_array($comprobar_mail);
+        if ($vcmail){
+          echo "<script>
+                  alert('El email ingresado ya está registrado. Reingrese un email valido.');
+                  window.location.href = 'reg_alumno.html';
+                </script>";
         }
         else{
-            echo "Ha ocurrido un error.";
+
+          if ($vcdni){
+            echo "<script>
+                    alert('El DNI ingresado ya está registrado. Reingrese un DNI valido.');
+                    window.location.href = 'reg_alumno.html';
+                  </script>";
+          }
+          else{
+            $sql = "INSERT INTO alumno(dni, fnac, apeynom, ciudad, domicilio, mail, genero, telefono)
+                    VALUES($dni, '$fnac', '$nomyape', '$ciudad', '$domicilio', '$mail', '$genero', '$telefono')";
+            $res = mysqli_query($con, $sql);
+            if ($res == TRUE){
+              echo "<h1 class='titulo'><center>Se ha registrado correctamente!</center></h1>";                  
+            }
+            else{
+              echo "Ha ocurrido un error.";
+            }
+          }
         }
+          
     ?>
 
 </body>

@@ -127,15 +127,15 @@
             </select>
             <div class="mb-3">
             <label for="n1" class="form-label">Ingrese la primer nota</label>
-            <input  type="number" name="n1" id="n1" class="form-control">
+            <input  type="number" name="n1" id="n1" min="1" max="10" class="form-control">
           </div>
           <div class="mb-3">
             <label for="n2" class="form-label">Ingrese la segunda nota</label>
-            <input  type="number" name="n2" id="n2" class="form-control">
+            <input  type="number" name="n2" id="n2" min="1" max="10" class="form-control">
           </div>
           <div class="mb-3">
             <label for="asis" class="form-label">Ingrese el % de asistencia</label>
-            <input  type="number" name="asis" id="asis" class="form-control">
+            <input  type="number" name="asis" id="asis" min="1" max="100"class="form-control">
           </div>
           <div class="mb-3">
             <label for="estado" class="form-label">Estado del alumno</label>

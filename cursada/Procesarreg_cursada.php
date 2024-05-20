@@ -88,7 +88,7 @@
   $nota2 = $_POST["n2"];
   $asis = $_POST["asis"];
   $estado = $_POST["estado"];
-
+  
   // $alu = "SELECT `id_alumno`FROM `alumno` WHERE apeynom = '$alumno'";
   // $ida = mysqli_query($con, $alu);
   // $idalu = mysqli_fetch_array($ida);

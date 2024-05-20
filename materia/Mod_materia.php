@@ -90,66 +90,56 @@
     $res = mysqli_query($con,$sql);
     $vec = mysqli_fetch_array($res);
     ?>
-
-    <form  method="post" action="ProcesarMod_materia.php">
-    <h1 class="titulo"><center>Modificar Materia</center></h1>
-      <table
-      align="center"
-      class="table table-bordered w-50">
-      <tr>
-      <td  height="40px">
-          <label for="idm">Id de la materia</label>
-      </td>
-      <td bgcolor="#D7D2F7" height="40px">
-          <input  type="text" id="idm" name="idm" value="<?php echo$vec[0]?>" readonly>
-
-      </td>
-  </tr>
-    <tr>
-      <td  height="40px">
-          <label for="nombre" ">Nombre de la materia</label>
-      </td>
-      <td bgcolor="#D7D2F7" height="40px">
-          <input  type="text" id="nombre" name="nombre" placeholder="Ingrese la materia" value="<?php echo$vec[1]?>">
-
-      </td>
-  </tr>
-    <tr>
-        <td  height="40px">
-            <label for="hs">Cantidad de horas</label>
+<h1 class="titulo"><center>Modifique la materia</center></h1>
+<form method="post" action="ProcesarMod_materia.php">
+      <table align="center"
+      class="table table-bordered w-50">>
+        <td>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de la Materia</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo$vec[1]?>">
+          </div>
+          <div class="mb-3">
+            <label for="hs" class="form-label">Ingrese la cantidad de horas</label>
+            <input  type="number" name="hs" id="hs" min="1" max="100000" class="form-control"  value="<?php echo$vec[2]?>">
+  
+          </div>
+          <div class="mb-3">
+            <label for="corre" class="form-label">Tiene correlativas?</label>
+            <select class="form-select" size="2" aria-label="Size 3 select example" id="corre" name="corre">
+            <?php 
+            if ($vec[3]=='si' || $vec[3]=='Si'){
+              echo'<option value="Si" selected="" >Si</option>';
+              echo'<option value="No">No</option>';
+            }else{
+              echo'<option value="Si" >Si</option>';
+              echo'<option value="No" selected="" >No</option>';
+            }
+            
+            ?>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="curso" class="form-label">Ingrese el curso al que pertenece</label>
+            <select class="form-select" size="2" aria-label="Size 3 select example" name="curso" id="curso">
+            <?php 
+            if ($vec[4]==1){
+              echo'<option value="1" selected="" >Curso 1</option>';
+              echo'<option value="2">Curso 2</option>';
+            }else{
+              echo'<option value="1" >Curso 1</option>';
+              echo'<option value="2" selected="" >Curso 2</option>';
+            }
+            
+            ?>
+            </select>
+          </div>
+          <input  type="submit"class="btn btn-outline-success"  value="Enviar">
+          <input  type="reset" class="btn btn-outline-danger" value="Borrar">
+  
         </td>
-        <td  height="40px">
-            <input  type="number" name="hs" id="hs" min="1" max="100000000000000000" placeholder="Ingrese la cantidad " value="<?php echo$vec[2]?>">
-        </td>
-    </tr>
-    <tr>
-      <td  height="40px">
-          <label for="corre" ">Tiene correlativas</label>
-      </td>
-      <td bgcolor="#D7D2F7" height="40px">
-          <input  type="text" id="corre" name="corre" placeholder="Si o No" value="<?php echo$vec[3]?>">
-
-      </td>
-  </tr>
-    <tr>
-        <td  height="40px">
-            <label for="curso">Ingrese el curso</label>
-        </td>
-        <td  height="40px">
-            <input  type="number" name="curso" id="curso" min="1" max="200000000000000000" placeholder="Curso 1 o 2" value="<?php echo$vec[4]?>">
-        </td>
-    </tr>
-    
-    <tr>
-        <td colspan="2" 
-        
-        align="center">
-            <input  type="submit" value="Enviar">
-            <input  type="reset" value="Borrar">
-        </td>
-    </tr>
-    </table>
-    </form>
+      </table>
+    </form> 
 </body>
 
 

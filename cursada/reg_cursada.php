@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
     <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../js/funcion.js"></script>
+    <script type="text/javascript" src="../js/mod.js"></script>
 </head>
 <body class="bg-secondary">
 <script
@@ -105,85 +105,53 @@
 
     ?>
 
+<h1 class="titulo"><center>Registrar Cursada</center></h1>
 
     <form  method="post" action="Procesarreg_cursada.php">
-    <h1 class="titulo"><center>Registrar Cursada</center></h1>
-      <table
-      align="center"
-      class="table table-bordered w-50">
-    
-    <tr>
-        <td  height="40px">
-            <label for="ida">Alumno</label>
-        </td>
-        <td  height="40px">
-              <select name="nombre" id="nombre">
-                <?php
-                while ($vec1 = mysqli_fetch_array($res1)) {
-                    echo "<option value='$vec1[0]'> $vec1[1] </option>";
-                }
-                ?>
-              </select>
-        </td>
-    </tr>
-    <tr>
-      <td  height="40px">
-          <label for="idm">Materia</label>
-      </td>
-      <td  height="40px">
-              <select name="materia" id="materia">
-              <?php
-                while ($vec2 = mysqli_fetch_array($res2)) {
+      <table align="center" class="table w-50">
+        <td>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Alumno</label>
+            <select class="form-select" id="nombre" name="nombre">
+              <?php while ($vec1 = mysqli_fetch_array($res1)) {
+                  echo "<option value='$vec1[0]'> $vec1[1] </option>";
+                }?>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="materia" class="form-label">Materias</label>
+            <select class="form-select" id="materia" name="materia">
+              <?php while ($vec2 = mysqli_fetch_array($res2)) {
                     echo "<option value='$vec2[0]'> $vec2[1] </option>";
-                }
-                ?>
-              </select>
+                }?>
+            </select>
+            <div class="mb-3">
+            <label for="n1" class="form-label">Ingrese la primer nota</label>
+            <input  type="number" name="n1" id="n1" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="n2" class="form-label">Ingrese la segunda nota</label>
+            <input  type="number" name="n2" id="n2" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="asis" class="form-label">Ingrese el % de asistencia</label>
+            <input  type="number" name="asis" id="asis" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado del alumno</label>
+            <input  type="text" name="estado" id="estado" class="form-control" readonly>
+          </div>
+          <button type="button" class="btn btn-info" id="ver" name="ver">Ver estado</button>
+          <div class="mb-3">
+            <center>
+            <input  type="submit"class="btn btn-outline-success"  value="Enviar">
+            <input  type="reset" class="btn btn-outline-danger" value="Borrar">
+            </center>
+          </div>
         </td>
-  </tr>
-  <tr>
-    <td  height="40px">
-        <label for="n1">Primer Nota</label>
-    </td>
-    <td  height="40px">
-        <input  type="number" name="n1" id="n1"  placeholder="Ingrese la primer nota" >
-    </td>
-  </tr>
-  <tr>
-    <td  height="40px">
-      <label for="n2">Segunda Nota</label>
-  </td>
-  <td  height="40px">
-      <input  type="number" name="n2" id="n2"  placeholder="Ingrese la segunda nota" >
-  </td>
-  </tr>
-  <tr>
-    <td  height="40px">
-        <label for="asis"> % de Asistencia</label>
-    </td>
-    <td  height="40px">
-        <input  type="number" name="asis" id="asis" placeholder="Ingrese el porcentaje de asistencia" >
-    </td>
-  </tr>
-  <tr>
-    <td  height="40px">
-        <label for="estado">Estado</label>
-    </td>
-    <td  height="40px">
-      <input type="text" value="Estado alumno" id="estado" name="estado" readonly>
-        <input type="button" value="Ver estado" id="ver" name="ver">
-    </td>
-  </tr>
-  
-    <tr>
-        <td colspan="2" 
-        
-        align="center">
-            <input  type="submit" value="Enviar">
-            <input  type="reset" value="Borrar">
-        </td>
-    </tr>
-    </table>
+      </table>
     </form>
+    
 </body>
 
 

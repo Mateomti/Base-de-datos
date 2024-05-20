@@ -44,7 +44,7 @@
                 Listado
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="ListadoAlumno.php">Alumnos</a></li>
+                <li><a class="dropdown-item" href="../alumno/ListadoAlumno.php">Alumnos</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" href="../materia/ListadoMateria.php">Materias</a>
@@ -86,11 +86,11 @@
       $sql = "DELETE FROM materia WHERE id_materia =".$idm;
       $res = mysqli_query($con,$sql);
       if ($res == TRUE){
-        echo "<h1 class='titulo'><center>Se ha eliminado con exito!</center></h1>";
+        echo"<h1 class='titulo'><center>Se eliminado correctamente la materia!</center></h1>";
         
     }
     else{
-        echo "<h1 class='error'><center>Ha ocurrido un error</center></h1>";
+        echo "<h1 class='titulo'><center>Ha ocurrido un error</center></h1>";
     }
     ?>
 

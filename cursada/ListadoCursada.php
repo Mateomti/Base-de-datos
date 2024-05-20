@@ -88,16 +88,16 @@
         echo"No hay alumnos registrados.";
     }
     else{ ?>
-        <table align="center" class="table table-bordered w-50" >
-        <tr bgcolor="white">
-            <th> <center>Alumno</center> </th>
-            <th> <center>Materia</center> </th>
-            <th><center>Nota 1</center> </th>
-            <th> <center>Nota 2</center> </th>
-            <th> <center>Asistencia</center> </th>
-            <th> <center>Estado</center> </th>
-            <th> <center>Modificar</center> </th>
-            <th> <center>Eliminar</center> </th>
+        <table align="center" class="table table-striped table-bordered w-50" >
+        <tr >
+            <th class="table-info"> <center>Alumno</center> </th>
+            <th class="table-info"> <center>Materia</center> </th>
+            <th class="table-info"><center>Nota 1</center> </th>
+            <th class="table-info"> <center>Nota 2</center> </th>
+            <th class="table-info"> <center>Asistencia</center> </th>
+            <th class="table-info"> <center>Estado</center> </th>
+            <th class="table-info"> <center>Modificar</center> </th>
+            <th class="table-info"> <center>Eliminar</center> </th>
         </tr>
         <?php
         
@@ -119,9 +119,14 @@
                 echo"<td><center>$vec[4]</center></td>";
                 echo"<td><center>$vec[6]</center></td>";
                 echo"<td><center><a href='Mod_cursada.php?idc=$vec[5]'>Modificar</a></center></td>";
-                echo"<td><center><a href='eliminar_cursada.php?idc=$vec[5]'>Eliminar</a></center></td>";
+                echo "<td><center><a href='eliminar_cursada.php?idc=$vec[5]' onclick='return confirmarEliminacion()' class='link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'>Eliminar</a></center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>
+        <script>
+            function confirmarEliminacion() {
+                return confirm('¿Estás seguro de que deseas eliminar esta cursada?');
+            }
+        </script>
   </body>
 </html>

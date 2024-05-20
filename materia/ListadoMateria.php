@@ -91,14 +91,14 @@
         echo"No hay alumnos registrados.";
     }
     else{ ?>
-        <table align="center" class="table table-bordered w-50" >
+        <table align="center" class="table table-striped table-bordered w-50" >
         <tr bgcolor="white">
-            <th > <center>Materia</center> </th>
-            <th> <center>Hs</center> </th>
-            <th> <center>Correlativas</center> </th>
-            <th><center>Curso</center> </th>
-            <th> <center>Modificar</center> </th>
-            <th> <center>Eliminar</center> </th>
+            <th class="table-info"> <center>Materia</center> </th>
+            <th class="table-info"> <center>Hs</center> </th>
+            <th class="table-info"> <center>Correlativas</center> </th>
+            <th class="table-info"><center>Curso</center> </th>
+            <th class="table-info"> <center>Modificar</center> </th>
+            <th class="table-info"> <center>Eliminar</center> </th>
         </tr>
         
         <?php
@@ -109,9 +109,14 @@
                 echo"<td><center>$vec[2]</center></td>";
                 echo"<td><center>$vec[3]</center></td>";
                 echo"<td><center><a href='Mod_materia.php?idm=$vec[4]'>Modificar</a></center></td>";
-                echo"<td><center><a href='Eliminar_materia.php?idm=$vec[4]'>Eliminar</a></center></td>";
+                echo"<td><center><a href='Eliminar_materia.php?idm=$vec[4]' onclick='return confirmar()' class='link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'>Eliminar</a></center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>
+        <script>
+          function confirmar(){
+            return confirm('¿Esta seguro que desea eliminar esta materia?')
+          }
+        </script>
 </body>
 </html>

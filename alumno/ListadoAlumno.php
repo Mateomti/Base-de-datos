@@ -88,17 +88,17 @@
         echo"No hay alumnos registrados.";
     }
     else{ ?>
-        <table class="table table-bordered w-50" align="center"  >
+        <table class="table table-striped table-bordered w-50" align="center"  >
         <tr bgcolor=lightblue>
-            <th> <center>Nombre y Apellido</center> </th>
-            <th > <center>DNI</center> </th>
-            <th> <center>Ciudad</center> </th>
-            <th> <center>Fecha de Nacimiento</center> </th>
-            <th> <center>Mail</center></th>
-            <th> <center>Genero</center></th>
-            <th><center>Telefono</center></th>
-            <th> <center>Modificar</center> </th>
-            <th> <center>Eliminar</center> </th>
+            <th class="table-info"> <center>Nombre y Apellido</center> </th>
+            <th class="table-info"> <center>DNI</center> </th>
+            <th class="table-info"> <center>Ciudad</center> </th>
+            <th class="table-info"> <center>Fecha de Nacimiento</center> </th>
+            <th class="table-info"> <center>Mail</center></th>
+            <th class="table-info"> <center>Genero</center></th>
+            <th class="table-info"><center>Telefono</center></th>
+            <th class="table-info"> <center>Modificar</center> </th>
+            <th class="table-info"> <center>Eliminar</center> </th>
             
         </tr>
         <?php
@@ -113,9 +113,14 @@
                 echo"<td><center>$vec[6]</center></td>";
 
                 echo"<td><center><a href='mod_alumno.php?id_a=$vec[7]'> Modificar</a></center></td>";
-                echo"<td><center><a href='eliminar_alu.php?id_a=$vec[7]'> Eliminar</a></center></center></td>";
+                echo"<td><center><a href='eliminar_alu.php?id_a=$vec[7]' onclick='return confirmar()' class='link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'> Eliminar</a></center></center></td>";
             echo"</tr>";
         }echo"</table>";}
         ?>
+        <script>
+          function confirmar(){
+            return confirm('¿Esta seguro que desea eliminar a este alumno?')
+          }
+        </script>
 </body>
 </html>

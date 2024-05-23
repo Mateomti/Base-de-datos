@@ -114,7 +114,7 @@
                   </script>";
           }
           else{
-            $sql = "INSERT INTO alumno(dni, fnac, apeynom, ciudad, domicilio, mail, genero, telefono)
+            $sql = "INSERT INTO alumno(dni, fnacimiento, apeynom, ciudad, domicilio, mail, genero, telefono)
                     VALUES($dni, '$fnac', '$nomyape', '$ciudad', '$domicilio', '$mail', '$genero', '$telefono')";
             $res = mysqli_query($con, $sql);
             if ($res == TRUE){

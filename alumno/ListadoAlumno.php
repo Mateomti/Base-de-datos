@@ -82,7 +82,7 @@
     <h1 class="titulo"><center>Listado Alumnos</center></h1>
     <?php
     include("../conexion.php");
-    $sql = "SELECT A.apeynom, A.dni, A.fnac, A.ciudad, A.mail, A.genero, A.telefono, A.id_alumno FROM alumno A";
+    $sql = "SELECT A.apeynom, A.dni, A.fnacimiento, A.ciudad, A.mail, A.genero, A.telefono, A.id_alumno FROM alumno A";
     $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";

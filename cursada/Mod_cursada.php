@@ -88,24 +88,15 @@
       $res = mysqli_query($con, $sql);
       $vec = mysqli_fetch_array($res);
 
+
       $sql1 = "SELECT * FROM alumno";
       $res1 = mysqli_query($con, $sql1);
-      
-      // $matriz1 = [];
-      // if ($res1) {
-      //   while ($row = mysqli_fetch_array($res1, MYSQLI_ASSOC)) {
-      //       $matriz1[] = $row['apeynom'];
-      //   }
-      // }
       $sql2 = "SELECT * FROM materia";
       $res2 = mysqli_query($con, $sql2);
 
-      // $matriz2 = [];
-      // if ($res2) {
-      //     while ($row = mysqli_fetch_array($res2, MYSQLI_ASSOC)) {
-      //         $matriz2[] = $row['nombre'];
-      //     }
-      // }
+      $prueba = "SELECT * FROM alumno, materia WHERE id_alumno = $vec[1] AND id_materia = $vec[2]";
+      $pru = mysqli_query($con, $prueba);
+      $vector = mysqli_fetch_array($pru);
 
     ?>
 
@@ -130,8 +121,14 @@
         <td  height="40px">
               <select name="nombre" id="nombre">
                 <?php
+
                 while ($veca = mysqli_fetch_array($res1)){
-                  echo"<option value='$veca[0]'>$veca[3]</option>";
+                  if ($veca[3]==$vector[3]){
+                  echo"<option value='$veca[0]' selected=''>$vector[3]</option>";
+
+                  }else{
+                    echo"<option  value='$veca[0]'>$veca[3]</option>";
+                  }
                 }
                 ?>
               </select>
@@ -144,9 +141,14 @@
       <td  height="40px">
               <select name="materia" id="materia">
               <?php
-                while ($vecm = mysqli_fetch_array($res2)){
-                  echo"<option value='$vecm[0]'>$vecm[1]</option>";
+              while ($vecm = mysqli_fetch_array($res2)){
+                if ($vecm[1]==$vector[10]){
+                echo"<option value='$vecm[0]' selected=''>$vector[10]</option>";
+
+                }else{
+                  echo"<option  value='$vecm[0]'>$vecm[1]</option>";
                 }
+              }
                 ?>
               </select>
         </td>
@@ -187,8 +189,8 @@
         <td colspan="2" 
         
         align="center">
-            <input  type="submit" value="Enviar">
-            <input  type="reset" value="Borrar">
+        <center><input  type="submit"class="btn btn-outline-success"  value="Enviar">
+            <input  type="reset" class="btn btn-outline-danger" value="Borrar"></center>
         </td>
     </tr>
     </table>

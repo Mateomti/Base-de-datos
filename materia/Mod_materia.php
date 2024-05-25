@@ -96,6 +96,10 @@
       class="table table-bordered w-50">>
         <td>
           <div class="mb-3">
+            <label for="idm" class="form-label">ID de la Materia</label>
+            <input type="text" class="form-control" id="idm" name="idm" value="<?php echo$vec[0]?>" readonly>
+          </div>
+          <div class="mb-3">
             <label for="nombre" class="form-label">Nombre de la Materia</label>
             <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo$vec[1]?>">
           </div>
@@ -134,8 +138,8 @@
             ?>
             </select>
           </div>
-          <input  type="submit"class="btn btn-outline-success"  value="Enviar">
-          <input  type="reset" class="btn btn-outline-danger" value="Borrar">
+          <center><input  type="submit"class="btn btn-outline-success"  value="Enviar">
+            <input  type="reset" class="btn btn-outline-danger" value="Borrar"></center>
   
         </td>
       </table>

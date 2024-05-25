@@ -92,12 +92,12 @@
         $telefono = $_POST["telefono"];
 
         // Comprobar DNI 
-        $cdni = "SELECT dni FROM `alumno` WHERE dni=$dni";
+        $cdni = "SELECT dni FROM `alumno` WHERE dni=$dni and id_alumno != '$ida'";
         $comprobar_dni = mysqli_query($con, $cdni);
         $vcdni = mysqli_fetch_array($comprobar_dni);
 
         // Comprobar mail
-        $cmail = "SELECT mail FROM `alumno` WHERE mail='$mail'";
+        $cmail = "SELECT mail FROM `alumno` WHERE mail='$mail' ";
         $comprobar_mail = mysqli_query($con, $cmail);
         $vcmail = mysqli_fetch_array($comprobar_mail);
         if ($vcmail){
@@ -115,7 +115,7 @@
                   </script>";
           }
           else{
-            $sql = "UPDATE alumno SET dni=$dni, fnac='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
+            $sql = "UPDATE alumno SET dni=$dni, fnacimiento='$fnac', apeynom='$nomyape', ciudad='$ciudad', domicilio='$domicilio', mail='$mail',genero='$genero',telefono='$telefono' 
                     WHERE id_alumno = $ida";
             $res = mysqli_query($con, $sql);
             if ($res == TRUE){

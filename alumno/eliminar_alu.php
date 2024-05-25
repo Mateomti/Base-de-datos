@@ -83,8 +83,7 @@
       $ida = $_GET["id_a"];
       $verificar_cursada = "SELECT id_alumno FROM cursada WHERE id_alumno = $ida";
       $ver = mysqli_query($con,$verificar_cursada);
-      $valor = mysqli_fetch_array($ver);
-      if ($valor){
+      if ($ver){
         echo"<script>
               alert('No se puede eliminar a este alumno porque está registrado en una cursada.');
               window.location.href = 'ListadoAlumno.php';

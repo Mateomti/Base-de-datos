@@ -82,7 +82,8 @@
     <h1 class="titulo"><center>Listado Cursada</center></h1>
     <?php
     include("../conexion.php");
-    $sql = "SELECT C.id_alumno,C.id_materia, C.nota1,C.nota2,C.asistencia, C.id_cursada, C.estado FROM cursada C";
+    $sql = "SELECT  A.id_alumno, A.apeynom, M.id_materia, M.nombre, C.* FROM alumno A, materia M, cursada C 
+            where A.id_alumno = C.id_alumno and m.id_materia = C.id_materia";
     $res = mysqli_query($con,$sql);
     if ($res == FALSE){
         echo"No hay alumnos registrados.";
@@ -105,20 +106,14 @@
 
 
         while ($vec = mysqli_fetch_array($res)){
-          $alu = "SELECT `apeynom`FROM `alumno` WHERE id_alumno = '$vec[0]'";
-          $ida = mysqli_query($con, $alu);
-          $idalu = mysqli_fetch_array($ida);
-          $mat = "SELECT `nombre`FROM `materia` WHERE id_materia = '$vec[1]'";
-          $idm = mysqli_query($con, $mat);
-          $idmat = mysqli_fetch_array($idm);
             echo"<tr bgcolor='white'>";
-                echo"<td><center>$idalu[0]</center></td>";
-                echo"<td><center>$idmat[0]</center></td>";
-                echo"<td><center>$vec[2]</center></td>";
+                echo"<td><center>$vec[1]</center></td>";
                 echo"<td><center>$vec[3]</center></td>";
-                echo"<td><center>$vec[4]</center></td>";
-                echo"<td><center>$vec[6]</center></td>";
-                echo"<td><center><a href='Mod_cursada.php?idc=$vec[5]'>Modificar</a></center></td>";
+                echo"<td><center>$vec[7]</center></td>";
+                echo"<td><center>$vec[8]</center></td>";
+                echo"<td><center>$vec[9]</center></td>";
+                echo"<td><center>$vec[10]</center></td>";
+                echo"<td><center><a href='Mod_cursada.php?idc=$vec[4]'>Modificar</a></center></td>";
                 echo "<td><center><a href='eliminar_cursada.php?idc=$vec[5]' onclick='return confirmarEliminacion()' class='link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'>Eliminar</a></center></td>";
             echo"</tr>";
         }echo"</table>";}

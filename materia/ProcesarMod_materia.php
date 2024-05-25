@@ -88,7 +88,7 @@
         $curso = $_POST["curso"];
 
         // Comprobrar nombre de la materia
-        $cnom = "SELECT nombre FROM `materia` WHERE nombre='$nombre'";
+        $cnom = "SELECT nombre FROM `materia` WHERE nombre='$nombre' and id_materia !='$idm'";
         $comprobar_nombre = mysqli_query($con, $cnom);
         $vcnom = mysqli_fetch_array($comprobar_nombre);
         

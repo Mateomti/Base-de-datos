@@ -84,8 +84,7 @@
       $idm = $_GET["idm"];
       $verificar_materia = "SELECT id_materia FROM cursada WHERE id_materia = $idm";
       $ver = mysqli_query($con,$verificar_materia);
-      $valor = mysqli_fetch_array($ver);
-      if ($valor){
+      if ($ver){
         echo"<script>
           alert('No se puede eliminar la materia porque está registrada en una cursada.');
           window.location.href = 'ListadoMateria.php';

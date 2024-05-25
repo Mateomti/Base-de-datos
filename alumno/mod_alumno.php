@@ -78,21 +78,17 @@
         </div>
       </div>
     </nav>
-
-    
-</body>
     <?php
     include("../conexion.php");
 
     $ida = $_GET["id_a"];
 
     $sql = "SELECT * FROM Alumno WHERE id_alumno =".$ida;
-    echo"$sql";   
     $res = mysqli_query($con,$sql);
     $vec = mysqli_fetch_array($res);
     ?>
     <form  method="post" action="Procesarmod_alumno.php">
-    <h1 class="titulo"><center>Registrar Alumno</center></h1>
+    <h1 class="titulo"><center>Modificar Alumno</center></h1>
       <table
       align="center"
       class="table table-bordered w-50">
@@ -175,11 +171,15 @@
         <td colspan="2" 
         
         align="center">
-            <input  type="submit" value="Enviar">
-            <input  type="reset" value="Borrar">
+        <center><input  type="submit"class="btn btn-outline-success"  value="Enviar">
+            <input  type="reset" class="btn btn-outline-danger" value="Borrar"></center>
         </td>
     </tr>
     </table>
     </form>
+
+    
+</body>
+    
 
 </html>

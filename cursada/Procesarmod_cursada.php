@@ -88,8 +88,11 @@
   $nota2 = $_POST["n2"];
   $asis = $_POST["asis"];
   $estado = $_POST["estado"];
+
+
   
-$sql = "UPDATE cursada SET id_alumno=$alumno, id_materia=$materia, nota1=$nota1, nota2=$nota2, asistencia=$asis, estado='$estado'
+  
+  $sql = "UPDATE cursada SET id_alumno=$alumno, id_materia=$materia, nota1=$nota1, nota2=$nota2, asistencia=$asis, estado='$estado'
           WHERE id_cursada = $idc";
   $res = mysqli_query($con, $sql);
   if ($res == TRUE){

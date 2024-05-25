@@ -92,7 +92,7 @@
   $verificacion = "SELECT id_alumno, id_materia FROM cursada WHERE id_alumno=$alumno AND id_materia=$materia";
   $ver = mysqli_query($con, $verificacion);
   $valor = mysqli_fetch_array($ver);
-  if ($valor[0] == $alumno && $valor[1] == $materia){
+  if ($valor){
     echo"<script>
       alert('El alumno ya está registrada en una cursada de esa materia.');
       window.location.href = 'reg_cursada.php';
